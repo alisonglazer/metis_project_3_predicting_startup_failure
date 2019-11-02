@@ -1,0 +1,94 @@
+
+body {
+  margin-top: 5rem;
+  font-family: "Geneva"
+  color: black
+}
+
+.page-bg {
+  background: url('https://i.ibb.co/myT4W81/Untitled-presentation-1.png');
+  /* background: url("/Web/flask_bg.png"); */
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+  position: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+p {
+  color: #99736b;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #99736b;
+  font-family:"Gulim"
+}
+
+.bg-steel {
+  background-color: #5f788a;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+
+.form-control-form-control-sm {
+  border: 1px solid #ccc;
+  width: 300px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.5); no-repeat 90% 50%;
+}
+
+.form-control-form-control-sm text {
+    padding: 5px 5px;
+    width: 165%;
+    border: none;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.1);
+    background-image: transparent;
+    -webkit-appearance: none;
+}
+
+
+
+.form-control-form-control-sm text:focus {
+    outline: none;
+}
+
+.select-style {
+    border: 1px solid #ccc;
+    width: 180px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.5); no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 3px 10px;
+    width: 160%;
+    border: none;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.1);
+    background-image: transparent;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+.btn-primary {
+  background-color: rgba(203, 152, 142, 0.5);
+  border: none;
+}

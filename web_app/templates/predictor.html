@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    <!-- include jQuery, so we have access to the $.post function -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <script src="functions.js"></script>
+  <title>Startup Success Predictor</title>
+  <link rel='icon' href='https://cdn.shopify.com/s/files/1/2263/3863/t/3/assets/gem20170926170925_reerth-rewards-tier-icons-3.png?3908571769976669947' type='image/png'/ >
+</head>
+<body>
+  <!-- <img src="/static/images/decision_tree.png" alt="My charts" > -->
+  <main role="main" class="container">
+    <div class="page-bg">
+    </div>
+    <h2> Welcome </h2>
+    <p>
+      Use the tool below to calculate the probability of success for a given company.
+    </p>
+	  <div class="row">
+	    <div class="col-md-8">
+        <form action="/answer">
+
+          <h3>Enter company information:</h3>
+
+          <div class="row">
+            {% for ix in range(2) %}
+            <div class="col">
+              <input type="text" name="{{ feature_names[ix] }}" class="form-control-form-control-sm" placeholder="{{ feature_display_names[ix] }}" required>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="row">
+            {% for ix in range(2,4) %}
+            <div class="col">
+              <input type="text" name="{{ feature_names[ix] }}" class="form-control-form-control-sm" placeholder="{{ feature_display_names[ix] }}" required>
+            </div>
+            {% endfor %}
+          </div>
+          <br>
+
+          <div class="select-style">
+            <select name="category"/>
+              <option value="Other">Select Industry </option>
+            {% for ix in range(4,15) %}
+                {% if feature_names[ix] == category %}
+                    <option value="{{feature_names[ix]}}" selected>{{ feature_display_names[ix] }}</option>
+                {% endif %}
+                <option value="{{feature_names[ix]}}">{{ feature_display_names[ix] }}</option>
+                <!-- <input type="text" name="{{ f }}" value="{{x_input[loop.index0]}}"> -->
+            {% endfor %}
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <br>
+          <div class="select-style">
+            <select name="country"/>
+              <option value="Other">Select Country</option>
+            {% for ix in range(15,20) %}
+                {% if feature_names[ix] == country %}
+                    <option value="{{feature_names[ix]}}" selected>{{ feature_display_names[ix] }}</option>
+                {% endif %}
+                <option value="{{feature_names[ix]}}">{{ feature_display_names[ix] }}</option>
+                <!-- <input type="text" name="{{ f }}" value="{{x_input[loop.index0]}}"> -->
+            {% endfor %}
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <br>
+          <div class="select-style">
+            <select name="us_state"/>
+              <option value="Other">Select State (if in USA)</option>
+            {% for ix in range(20,24) %}
+                {% if feature_names[ix] == us_state %}
+                    <option value="{{feature_names[ix]}}" selected>{{ feature_display_names[ix] }}</option>
+                {% endif %}
+                <option value="{{feature_names[ix]}}">{{ feature_display_names[ix] }}</option>
+            {% endfor %}
+              <option value="Other">Other</option>
+            </select>
+            <span> </span>
+          </div>
+          <p>
+
+          </p>
+              <input value = "Submit" type="submit" class="btn btn-primary" method="get"></input>
+            </form>
+            </div>
+
+        <!-- <p>
+          Prediction:
+          {% for p in prediction %}
+            <br>  {{p['name']}}:{{ 100*p['prob'] | round(2) }}%
+          {% endfor %}
+        </p> -->
+	    </div>
+	</main>
+    <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
